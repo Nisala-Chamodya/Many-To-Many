@@ -18,6 +18,18 @@ public class AppInitializer {
         Lecturer l2=  new Lecturer();
         l2.setlId("l002");
         l2.setName("Hasika");
+
+
+
+        Lecturer l3=new Lecturer();
+        l3.setlId("l003");
+        l3.setName("Nisala");
+
+
+
+        Lecturer l4=  new Lecturer();
+        l4.setlId("l004");
+        l4.setName("Chamodya");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         Subject s1 = new Subject();
@@ -29,6 +41,18 @@ public class AppInitializer {
        Subject s2= new Subject();
         s2.setsId("s002");
         s2.setName("DBMS");
+
+
+        Subject s3 = new Subject();
+        s3.setsId("s003");
+        s3.setName("Layerd");
+
+
+
+        Subject s4= new Subject();
+        s4.setsId("s004");
+        s4.setName("ORM");
+
        // step 01
         ArrayList<Subject> subjectList = new ArrayList<>();
         subjectList.add(s1);
@@ -48,16 +72,23 @@ public class AppInitializer {
 
 
 
+        //step 02
+        l3.getSubjectList().add(s3);
+        l4.getSubjectList().add(s4);
+
+
+        s3.getLecturerList().add(l3);
+        s3.getLecturerList().add(l4);
 
 
         Session session = FactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        session.save(s1);
-        session.save(s2);
+        session.save(s3);
+        session.save(s4);
 
-        session.save(l1);
-        session.save(l2);
+        session.save(l3);
+        session.save(l4);
 
 
 
